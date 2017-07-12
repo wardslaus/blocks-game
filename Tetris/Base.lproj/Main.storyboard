@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tetris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9L-Sg-z9M">
+                                <rect key="frame" x="140.5" y="530" width="39" height="30"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="0.16278754340277779" green="0.16278754340277779" blue="0.16278754340277779" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NoO-Ub-ptv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxB-qC-kUn">
+                                <rect key="frame" x="262" y="530" width="42" height="30"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Pause">
+                                    <color key="titleColor" red="0.16278754340277779" green="0.16278754340277779" blue="0.16278754340277779" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="togglePause" destination="BYZ-38-t0r" eventType="touchUpInside" id="b0v-Us-yXL"/>
+                                </connections>
+                            </button>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="SW7-rg-vbC" customClass="TetrisView" customModule="Tetris" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gridColor">
+                                        <color key="value" red="0.92982313368055558" green="0.92982313368055558" blue="0.92982313368055558" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="mainColor">
+                                        <color key="value" red="0.71484375" green="0.71484375" blue="0.71484375" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="aVt-Wi-Ryy" appends="YES" id="PFI-qD-5p4"/>
+                                    <outletCollection property="gestureRecognizers" destination="xoB-Ws-86q" appends="YES" id="6if-IY-yfa"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="kxB-qC-kUn" secondAttribute="trailing" id="3Gp-ch-Q3s"/>
+                            <constraint firstItem="SW7-rg-vbC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7to-a4-FEC"/>
+                            <constraint firstItem="SW7-rg-vbC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HSW-NH-M8x"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="q9L-Sg-z9M" secondAttribute="bottom" constant="8" id="Q4d-hu-W1P"/>
+                            <constraint firstAttribute="trailing" secondItem="SW7-rg-vbC" secondAttribute="trailing" id="Shs-mB-HyH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kxB-qC-kUn" secondAttribute="bottom" constant="8" id="VBq-uS-OLW"/>
+                            <constraint firstItem="q9L-Sg-z9M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dXw-E5-7qj"/>
+                            <constraint firstItem="q9L-Sg-z9M" firstAttribute="top" secondItem="SW7-rg-vbC" secondAttribute="bottom" constant="8" id="gqW-3B-MmN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="panGestureRecognizer" destination="aVt-Wi-Ryy" id="Hz2-bI-wCs"/>
+                        <outlet property="pauseButton" destination="kxB-qC-kUn" id="ALS-2i-pGx"/>
+                        <outlet property="tetris" destination="SW7-rg-vbC" id="jRP-bY-E2W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer cancelsTouchesInView="NO" minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="aVt-Wi-Ryy">
+                    <connections>
+                        <action selector="slideFigure:" destination="BYZ-38-t0r" id="nSY-iN-XB4"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="xoB-Ws-86q">
+                    <connections>
+                        <action selector="rotateFigure:" destination="BYZ-38-t0r" id="tCe-bw-HBb"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-20.625" y="75"/>
+        </scene>
+    </scenes>
+</document>
